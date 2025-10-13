@@ -71,17 +71,6 @@
               href="{{ get_url(path=config.extra.favicon) }}" />
     {% endif %}
 
-    {# Font from cdn or disk #}
-    {% if config.extra.use_cdn | default(value=false) %}
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css">
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@4.5.8/index.min.css">
-    {% else %}
-        <link href={{ get_url(path="fonts.css") }} rel="stylesheet" />
-    {% endif %}
-
     {# Syntax theme #}
     {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
         <link rel="stylesheet"
@@ -103,20 +92,6 @@
     {# Dynamic Note #}
     {% if config.extra.dynamic_note | default(value=false) %}
         <script src={{ get_url(path="js/note.js") }}></script>
-    {% endif %}
-
-    {% if config.extra.mathjax | default(value=false) %}
-        {% if config.extra.mathjax_dollar_inline_enable | default(value=false) %}
-            <script>
-            MathJax = {
-              tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-              }
-            };
-            </script>
-        {% endif %}
-        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
     {% endif %}
 
     {# RSS #}
