@@ -1,8 +1,6 @@
-# apollo
+# Shuttle
 
-Modern and minimalistic blog theme powered by [Zola](https://getzola.org). See a live preview [here](https://not-matthias.github.io/apollo).
-
-<sub><sup>Named after the greek god of knowledge, wisdom and intellect</sup></sub>
+Modern and minimalistic blog theme powered by [Zola](https://getzola.org). Forked from [Apollo](https://github.com/not-matthias/apollo), itself based on [archie-zola](https://github.com/XXXMrG/archie-zola/).
 
 <details open>
   <summary>Dark theme</summary>
@@ -38,40 +36,12 @@ Modern and minimalistic blog theme powered by [Zola](https://getzola.org). See a
 
 ## Installation
 
-1. Download the theme
+I've created this theme entirely for use on my own blog. I provide no guarantees it will work for you, nor any support if it doesn't.
 
-```
-git submodule add https://github.com/not-matthias/apollo themes/apollo
-```
+If you would like to play around with this theme, the installation instructions on the [Apollo repository](https://github.com/not-matthias/apollo) upstream might help.
 
-2. Add the following to the top of your `config.toml`
-
-```toml
-theme = "apollo"
-taxonomies = [{ name = "tags" }]
-
-[extra]
-theme = "auto"
-socials = [
-  # Configure socials here
-]
-menu = [
-  # Configure menu bar here
-]
-
-# See this for more options: https://github.com/not-matthias/apollo/blob/main/config.toml#L14
-```
-
-3. Copy the example content
-
-```
-cp -r themes/apollo/content/* content/
-```
+If you would like a theme with community support, I would recommend choosing something else.
 
 ## Configuration
 
 Checkout all the [options you can configure](./content/posts/configuration.md) and the [example pages](./content/posts/).
-
-## References
-
-This theme is based on [archie-zola](https://github.com/XXXMrG/archie-zola/).
