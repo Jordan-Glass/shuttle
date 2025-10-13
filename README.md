@@ -21,7 +21,6 @@ Modern and minimalistic blog theme powered by [Zola](https://getzola.org). Forke
 - [x] Pagination
 - [x] Themes (light, dark, auto)
 - [x] Projects page
-- [x] Analytics using [GoatCounter](https://www.goatcounter.com/) / [Umami](https://umami.is/) / [Google Analytics](https://analytics.google.com/)
 - [x] Social Links
 - [x] MathJax Rendering
 - [x] Taxonomies
