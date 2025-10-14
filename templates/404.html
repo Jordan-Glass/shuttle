@@ -2,7 +2,7 @@
 
 {% block main_content %}
     <main class="not-found-header">
-        {{ post_macros::page_header(title="404") }}
-        <span>Page not found :(</span>
+        {{ post_macros::page_header(title="Page not found") }}
+        <span>Try the <a href={{ config.base_url }}>homepage</a> or search in the top right</span>
     </main>
 {% endblock main_content %}
