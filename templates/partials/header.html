@@ -17,12 +17,30 @@
     {% if page.extra.meta %}
         <!-- the meta data config goes here  -->
         {% for data in page.extra.meta %}
-            <meta {% for key, value in data %} {% if key == "property" and value == "og:title" %} {% set_global page_has_og_title = true -%} {% endif %}
-                  {% if key == "property" and value == "og:description" %} {% set_global page_has_og_description = true -%} {% endif %}
-                  {% if key == "name" and value == "description" %} {% set_global page_has_description = true -%} {% endif %}
-                  {{ key }}
-                  None="{{ value }}"
-                  {% endfor %} />
+		<meta
+		    	{% for key, value in data %}
+		    		{% if key == "property" and value == "og:title" %}
+		    			{% set_global page_has_og_title = true -%}
+	    			{% endif %}
+		          	{% if key == "property" and value == "og:description" %}
+		          		{% set_global page_has_og_description = true -%}
+		  		{% endif %}
+		          	{% if key == "name" and value == "description" %}
+		          		{% set_global page_has_description = true -%}
+		  		{% endif %}
+	                     	{% if key == "property" and value == "og:type"%}
+                         		{% set_global page_has_og_type = true -%}
+                     		{% endif %}
+                     		{% if key == "property" and value == "og:image"%}
+                         		{% set_global page_has_og_image = true -%}
+                     		{% endif %}
+                     		{% if key == "content" and value == "article"%}
+                         		{% set_global page_type_is_article = true -%}
+                     		{% endif %}
+		          {{ key }}
+		          None="{{ value }}"
+		          {% endfor %}
+		/>
         {% endfor %}
     {% endif %}
     
@@ -69,6 +87,27 @@
         {% elif config.description %}
             <meta name="description" content="{{ config.description }}" />
         {% endif %}
+    {% endif %}
+    
+    {# Default to og:type == website if none specified in page TOML #}
+    {% if not page_has_og_type %}
+        <meta name="og:type" content="website" />
+    {% endif %}
+    
+    {# Default to og:image == cover.png if none specified in page TOML #}
+    {% if not page_has_og_image %}
+        <meta name="og:image" content="/cover.png" />
+        <meta name="og:image:alt" content="A generic cover image with a dark grey background and red rectangular outline. Inside reads: Jordan Glass, on Cyber Security, Urban Design & Technology" />
+    {% endif %}
+    
+    {# Include og:article:published_time #}
+    {% if page.date and page_type_is_article %}
+        <meta name="article:published_time" content="{{ page.date }}" />
+    {% endif %}
+    
+    {# Include og:article:modified_time #}
+    {% if page.updated and page_type_is_article %}
+        <meta name="article:modified_time" content="{{ page.updated }}" />
     {% endif %}
 
     {# Favicon #}
