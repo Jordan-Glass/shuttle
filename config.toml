@@ -1,5 +1,5 @@
-base_url = "https://not-matthias.github.io/apollo/"
-title = "not-matthias"
+base_url = "https://example.local"
+title = "Shuttle"
 description = "This is an example description"
 build_search_index = true
 generate_feeds = true
@@ -43,8 +43,7 @@ menu = [
 ]
 
 socials = [
-    { name = "twitter", url = "https://twitter.com/not_matthias", icon = "twitter" },
-    { name = "github", url = "https://github.com/not-matthias/", icon = "github" },
+    { name = "github", url = "https://github.com/Jordan-Glass/shuttle", icon = "github" },
 ]
 
 stylesheets = [

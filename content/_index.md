@@ -20,9 +20,19 @@ template = "homepage.html"
 </style>
 
 <div class="homepage-hero">
-    <h1 class="homepage-hero-title">Apollo</h1>
-    <p class="homepage-hero-subtitle">A modern and minimalistic blog theme powered by Zola.</p>
+    <h1 class="homepage-hero-title">Shuttle</h1>
+    <p class="homepage-hero-subtitle">A fresh, privacy-first blog theme for Zola</p>
 </div>
+
+# Disclaimer
+
+This theme exists solely for use on [my own blog](https://blog.jglass.me). I give no guarantees it'll work for you, and will provide no support if it doesn't. You are on your own. The [MIT licence](https://github.com/Jordan-Glass/shuttle/blob/main/LICENSE) applies.
+
+The content within this example website should not be relied upon. It may be wrong for this blog, or refer to features, pages or other resources which are missing, do not work with this theme, or are not created or endorsed by me. Use at your own risk.
+
+# Attribution
+
+Shuttle is a fork of Apollo, which is created and maintained by not-matthias. You can find that theme [here](https://github.com/not-matthias/apollo).
 
 # Features
 
@@ -38,16 +48,3 @@ template = "homepage.html"
 - [Search functionality](@/posts/configuration.md#search-build-search-index)
 
 Checkout all the [options you can configure](@/posts/configuration.md) and the [example pages](@/posts/_index.md).
-
-# Quick Start
-
-1.  **Add the theme as a submodule:**
-    ```bash
-    git submodule add https://github.com/not-matthias/apollo themes/apollo
-    ```
-2.  **Configure your `config.toml`:**
-    Set `theme = "apollo"` and add your site's configuration.
-3.  **Start the Zola server:**
-    ```bash
-    zola serve
-    ```
