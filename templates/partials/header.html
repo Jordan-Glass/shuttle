@@ -37,8 +37,7 @@
                      		{% if key == "content" and value == "article"%}
                          		{% set_global page_type_is_article = true -%}
                      		{% endif %}
-		          {{ key }}
-		          None="{{ value }}"
+		          {{ key }}="{{ value }}"
 		          {% endfor %}
 		/>
         {% endfor %}
