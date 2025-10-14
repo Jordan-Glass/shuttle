@@ -25,6 +25,10 @@
                   {% endfor %} />
         {% endfor %}
     {% endif %}
+    
+    {# Add site_name tag #}
+    {# The below title tags are for pages instead #}
+    <meta name="og:site_name" content="{{ config.title }}">
 
     {# Site title #}
     {% set current_path = current_path | default(value="/") %}
