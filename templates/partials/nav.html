@@ -9,14 +9,15 @@
         {% endif %}
 
 
+        {# Added rel=me to non-RSS links, noopener and _blank if set in config #}
+        {# Changed this because the previous solution left quotes in the generated HTML #}
         <div class="socials">
-            {% if config.markdown.external_links_target_blank %}
-                {% set link_attrs = 'rel="me noopener" target="_blank"' %}
-            {% else %}
-                {% set link_attrs = 'rel="me"' %}
-            {% endif %}
             {% for social in config.extra.socials %}
-                <a {{ link_attrs }} href="{{ social.url }}" class="social">
+                <a 
+                {% if social.name != "rss" and not config.markdown.external_links_target_blank %}rel="me"{% endif %}
+                {% if social.name != "rss" and config.markdown.external_links_target_blank %}rel="me noopener" target="_blank"{% endif %}
+                {% if social.name == "rss" and config.markdown.external_links_target_blank %}target="_blank"{% endif %}
+                href="{{ social.url }}" class="social">
                     <img alt="{{ social.name }}"
                          src="{{ get_url(path="icons/social/" ~ social.icon ~ ".svg") }}">
                 </a>
