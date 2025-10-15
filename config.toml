@@ -31,7 +31,9 @@ fancy_code = true
 dynamic_note = true           # a note that can be toggled
 mathjax = true
 mathjax_dollar_inline_enable = true
-repo_url = "https://github.com/not-matthias/apollo/tree/main/content/"
+git_platform = "GitHub"
+file_history_base_url = "https://github.com/Jordan-Glass/shuttle/commits/main/content/"
+file_content_base_url = "https://github.com/Jordan-Glass/shuttle/tree/main/content/"
 
 fediverse = false    # author attribution
 fediverse_creator = ""    # e.g. @user@instance

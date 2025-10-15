@@ -9,66 +9,81 @@
                     {{ post_macros::page_header(title=page.title) }}
 
                     <div class="meta">
-                        {% if page.date %}
-                            Posted on <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-                        {% endif %}
+                        {# Change date format and omit if same as updated date #}
+	            	{% if page.date %}
+	                	Posted {% if page.updated and page.date | date(format="%d %B %Y") != page.updated | date(format="%d %B %Y") or not page.updated -%} on <time title="{{ page.date }}">{{ page.date | date(format="%d %B %Y") }}</time> {% endif %}
+	            	{% endif %}
+	            
+	            	{# Add updated date #}
+	            	{% if page.date and page.updated %}
+	                	and updated on <time title="{{ page.updated }}">{{ page.updated | date(format="%d %B %Y") }}</time>
+	            	{% endif %}
+	            
+	            	{# Add last updated date for content without posted date #}
+	            	{% if not page.date and page.updated %}
+	            		Last updated on <time title="{{ page.updated }}">{{ page.updated | date(format="%d %B %Y") }}</time>
+            	    	{% endif %}
 
+                        {# Add link to commit history if page has been updated #}
+            	    	{% if page.updated %}
+            	        	(<a href="{{ config.extra.file_history_base_url }}{{ page.relative_path }}">view history</a>)
+            	    	{% endif %}
 
-                        {% if page.updated %}
-                            :: Updated on <time>{{ page.updated | date(format="%Y-%m-%d") }}</time>
-                        {% endif %}
+                        {# Add page author under title/dates #}
+                        {# Show only if the page title isn't About or Contact ... #}
+                        {# ... AND either the site title isn't also an author (assumes this is a name) or there are multiple authors #}
+                    	{%- if page.title not in ["About", "Contact"] and (config.title not in page.authors or page.authors | length > 1) %}
+			        <br>
+			        Written by 
+			        {% if page.authors -%}
+			            {%- if page.authors -%}
+			                {%- for author in page.authors -%}
+			                    {%- if loop.last and not loop.first %}
+			                         and 
+			                    {%- elif not loop.first -%}
+			                        ,
+			                    {%- endif %}
+			                     {{ page.authors[loop.index0] }}
+			                {%- endfor -%}
+			            {%- endif -%}
+			        {%- elif config.author -%}
+			            {{ config.author }}
+			        {%- else -%}
+			            an unknown author
+			        {%- endif -%}
+			{%- endif -%}
+			    
+		        {# Inline display of tags directly after the authors #}
+		  	{% if page.taxonomies and page.taxonomies.tags %}
+		        	<br>
+		        	<span class="tags-label">Tagged as</span>
+		            	<span class="tags">
+		                {%- for tag in page.taxonomies.tags %}
+		                    <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}"
+		                       class="post-tag">{{ tag }}</a>
+		                {% endfor %}
+		            	</span>
+                	{% endif %}
+	                
+	                {# Add reading time #}
+		        <br>
+		        {{ page.reading_time }} minute{% if page.reading_time != 1%}s{% endif %} to read
+		        
+		        {# Add link to post source #}
+	            	<br>
+	            	<a href="{{ config.extra.file_content_base_url }}{{ page.relative_path }}">View original file on {{ config.extra.git_platform }}</a>
 
-                        {% if page.extra.read_time %}:: <time>{{ page.reading_time }}</time> Min Read{% endif %}
-
-                        {% if config.extra.word_count and page.word_count %}:: {{ page.word_count }} Words{% endif %}
-
-                        {# View the page on GitHub #}
-                        {% if page.extra.repo_view | default(value=config.extra.repo_view) | default(value=false) %}
-                            {# Use the page's repo_url if defined, otherwise use the global edit_repo_url #}
-                            {% if page.extra.repo_url is defined %}
-                                {% set repo_url = page.extra.repo_url %}
-                            {% elif config.extra.repo_url is defined %}
-                                {% set repo_url = config.extra.repo_url %}
-                            {% else %}
-                                {% set repo_url = false %}
-                            {% endif %}
-
-                            {% if repo_url %}
-                                {% set final_url = repo_url ~ page.relative_path %}
-                                :: <a href="{{ final_url }}" target="_blank" rel="noopener noreferrer">Source Code</a>
-                            {% endif %}
-                        {% endif %}
-
-                        {# Inline display of authors directly after the date #}
-                        {% if page.taxonomies and page.taxonomies.authors %}
-                            <span class="authors-label">::</span>
-                            <span class="authors">
-                                {%- for author in page.taxonomies.authors %}
-                                    <a href="{{ get_taxonomy_url(kind='authors', name=author, lang=page.lang) }}"
-                                       class="post-authors">{{ author }}</a>
-                                {% endfor %}
-                            </span>
-                        {% endif %}
-
-                        {# Inline display of tags directly after the authors #}
-                        {% if page.taxonomies and page.taxonomies.tags %}
-                            <span class="tags-label">::</span>
-                            <span class="tags">
-                                {%- for tag in page.taxonomies.tags %}
-                                    <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}"
-                                       class="post-tag">{{ tag }}</a>
-                                {% endfor %}
-                            </span>
-                        {% endif %}
-
-                        {% if page.draft %}<span class="draft-label">DRAFT</span>{% endif %}
+                        {# Change the draft label #}
+                        {% if page.draft %}<span class="draft-label">Draft</span>{% endif %}
 
                     </div>
                 </div>
 
+                {# Re-word and add a line break #}
                 {% if page.extra.tldr %}
                     <div class="tldr">
-                        <strong>tl;dr:</strong>
+                        <br>
+                        <strong>Summary</strong>:
                         {{ page.extra.tldr }}
                     </div>
                 {% endif %}
