@@ -72,6 +72,17 @@
 		        {# Add link to post source #}
 	            	<br>
 	            	<a href="{{ config.extra.file_content_base_url }}{{ page.relative_path }}">View original file on {{ config.extra.git_platform }}</a>
+	            	
+	            	{# Add license declaration and link #}
+	            	<br>
+	            	{% if page.extra.license %}
+	            		Post content licensed under <a href = "{{ page.extra.license_url }}">{{ page.extra.license }}</a>
+	            	{% elif config.extra.content_license %}
+	            		Site content licensed under <a href = "{{ config.extra.content_license_url }}">{{ config.extra.content_license }}</a>
+	            	{% endif %}
+	            	{% if config.extra.license_explainer %}
+	            		(<a href = "{{ config.extra.license_explainer }}">see what's included</a>)
+	            	{% endif %}
 
                         {# Change the draft label #}
                         {% if page.draft %}<span class="draft-label">Draft</span>{% endif %}

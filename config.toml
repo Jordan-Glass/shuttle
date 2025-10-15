@@ -34,6 +34,8 @@ mathjax_dollar_inline_enable = true
 git_platform = "GitHub"
 file_history_base_url = "https://github.com/Jordan-Glass/shuttle/commits/main/content/"
 file_content_base_url = "https://github.com/Jordan-Glass/shuttle/tree/main/content/"
+content_license = "MIT"
+content_license_url = "https://github.com/Jordan-Glass/shuttle/blob/main/LICENSE"
 
 fediverse = false    # author attribution
 fediverse_creator = ""    # e.g. @user@instance
