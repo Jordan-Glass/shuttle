@@ -33,6 +33,12 @@ Modern and minimalistic blog theme powered by [Zola](https://getzola.org). Forke
 - [x] Table of Contents
 - [x] Configurable cards layout
 
+## Licensing
+
+This theme is licensed under MIT, the text of which is available in the `LICENSE` file. This is because it is forked from Apollo, which is licensed under MIT.
+
+This excludes content in `static/fonts`. Archivo, Cascadia Code and Oswald are licensed under the OFL. The text of this is available in each font folder.
+
 ## Installation
 
 I've created this theme entirely for use on my own blog. I provide no guarantees it will work for you, nor any support if it doesn't.

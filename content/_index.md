@@ -34,6 +34,12 @@ The content within this example website should not be relied upon. It may be wro
 
 Shuttle is a fork of Apollo, which is created and maintained by not-matthias. You can find that theme [here](https://github.com/not-matthias/apollo).
 
+# Licensing
+
+This theme is licensed under MIT, the text of which is available in [the `LICENSE` file](https://github.com/Jordan-Glass/shuttle/blob/main/LICENSE). This is because it is forked from Apollo, which is licensed under MIT.
+
+This excludes content in `static/fonts`. Archivo, Cascadia Code and Oswald are licensed under the OFL. The text of this is available in each font folder.
+
 # Features
 
 - [Light, dark, and auto themes](@/posts/configuration.md#theme-mode-theme)
