@@ -41,7 +41,9 @@ This excludes content in `static/fonts`. Archivo, Cascadia Code and Oswald are l
 
 ## Installation
 
-I've created this theme entirely for use on my own blog. I provide no guarantees it will work for you, nor any support if it doesn't.
+I've created this theme entirely for use on my own blog. I will make changes exclusively for my own needs, which may not be the same as yours.
+
+I provide no guarantees this theme will work for you, nor any support if it doesn't. This is broadly what the [MIT license](./LICENSE) declares, and you should ensure you are comfortable with its terms before you use this theme.
 
 If you would like to play around with this theme, the installation instructions on the [Apollo repository](https://github.com/not-matthias/apollo) upstream might help.
 
