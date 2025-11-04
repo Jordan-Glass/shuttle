@@ -2,7 +2,7 @@
 
 Modern and minimalistic blog theme powered by [Zola](https://getzola.org). Forked from [Apollo](https://github.com/not-matthias/apollo), itself based on [archie-zola](https://github.com/XXXMrG/archie-zola/).
 
-<details open>
+<details>
   <summary>Dark theme</summary>
 
 ![blog-dark](./screenshot-dark.png)
