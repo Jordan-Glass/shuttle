@@ -4,11 +4,13 @@ $bg-0: #001a12;
 $bg-1: lighten($bg-0, 5%);
 $bg-2: lighten($bg-1, 10%);
 
+$text-meta: lighten($bg-0, 77%);
 $text-0: lighten($bg-0, 87%);
 $text-1: lighten($bg-0, 60%);
 $text-2: lighten($bg-0, 40%);
 
 :root.dark {
+  --text-meta: #{$text-meta};
   --text-0: #{$text-0};
   --text-1: #{$text-1};
   --text-2: #{$text-2};

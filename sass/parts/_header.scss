@@ -102,7 +102,7 @@ nav {
 
 /* TODO: Is this still used? */
 .meta {
-  color: #999;
+  color: var(--text-meta);
   display: flexbox;
   /* This changes the meta class to use flexbox, which ensures inline display */
   align-items: center;
