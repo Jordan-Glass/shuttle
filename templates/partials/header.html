@@ -95,8 +95,10 @@
     
     {# Default to og:image == cover.png if none specified in page TOML #}
     {% if not page_has_og_image %}
-        <meta name="og:image" content="/cover.png" />
-        <meta name="og:image:alt" content="A generic cover image with a dark grey background and red rectangular outline. Inside reads: Jordan Glass, on Cyber Security, Urban Design & Technology" />
+    	{% if config.extra.default_cover.enabled %}
+		<meta name="og:image" content="{{ config.extra.default_cover.path }}" />
+		<meta name="og:image:alt" content="{{ config.extra.default_cover.alt }}" />
+	{% endif %}
     {% endif %}
     
     {# Include og:article:published_time #}

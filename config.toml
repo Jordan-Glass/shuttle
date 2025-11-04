@@ -57,3 +57,8 @@ stylesheets = [
 [extra.taxonomies]
 sort_by = "page_count"         # e.g. name, page_count
 reverse = true
+
+[extra.default_cover]
+enabled = false
+path = "/cover.png"
+alt = "test"
