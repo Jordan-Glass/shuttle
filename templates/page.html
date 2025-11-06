@@ -30,9 +30,9 @@
             	    	{% endif %}
 
                         {# Add page author under title/dates #}
-                        {# Show only if the page title isn't About or Contact ... #}
+                        {# Show only if the page title isn't excluded  ... #}
                         {# ... AND either the site title isn't also an author (assumes this is a name) or there are multiple authors #}
-                    	{%- if page.title not in ["About", "Contact"] and (config.title not in page.authors or page.authors | length > 1) %}
+                    	{%- if page.title not in config.extra.dont_show_authors and (config.title not in page.authors or page.authors | length > 1) %}
 			        <br>
 			        Written by 
 			        {% if page.authors -%}
